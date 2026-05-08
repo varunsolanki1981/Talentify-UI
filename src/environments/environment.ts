@@ -1,0 +1,5 @@
+// Used for ng serve and ng build
+export const environment = {
+    production:false,
+    apiUrl: 'http://localhost:8080/userapi'
+};

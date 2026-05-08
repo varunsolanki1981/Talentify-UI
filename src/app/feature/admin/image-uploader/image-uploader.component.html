@@ -1,0 +1,126 @@
+<app-breadcrumb></app-breadcrumb>
+<form [formGroup]=uploadForm    class="uploader">
+<div >
+   
+  <h3>Upload Image</h3>
+  <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" />
+
+  <div class="meta">
+    <mat-form-field [style.width.px]=600 class="col-sm-4 col-md-4 col-lg-4" appearance="outline">
+            <mat-label>Title</mat-label>
+            <mat-icon matPrefix>mail</mat-icon>
+            <input matInput type="text" formControlName="title" placeholder="Image title" required>
+            <mat-error *ngIf="uploadForm.get('title')?.invalid">Title is required</mat-error>
+         </mat-form-field>
+
+         <mat-form-field [style.width.px]=600 class="col-sm-4 col-md-4 col-lg-4" appearance="outline">
+            <mat-label>Description</mat-label>
+            <mat-icon matPrefix>description</mat-icon>
+            <input matInput type="textarea" rows="3" formControlName="description" placeholder="Image description" required>
+            <mat-error *ngIf="uploadForm.get('description')?.invalid">Description is required</mat-error>
+         </mat-form-field>
+
+  </div>
+
+  <div *ngIf="previewSrc" class="preview">
+    <img [src]="previewSrc" alt="preview" />
+  </div>
+
+  <div class="actions">
+    <button (click)="upload()" [disabled]="!selectedFile || uploading">Upload</button>
+    <div *ngIf="uploading" class="progress">Progress: {{uploadProgress}}%</div> 
+     <!-- <div *ngIf="uploading" class="server-message">Upload Complete</div> -->
+  </div>
+ <div *ngIf="uploading" class="server-message">{{serverMessage}}</div>
+  <!-- <div *ngIf="serverMessage" class="server-message">{{serverMessage}}</div> -->
+</div>
+  
+<!-- {{images}}
+<div *ngIf="images && images.length > 0" class="image-gallery">
+  <mat-card *ngFor="let image of images" class="image-card">
+    <mat-card-header>
+      <mat-card-title>{{ image.name }}</mat-card-title>
+    </mat-card-header>
+   
+    <img mat-card-image [src]="'data:image/jpeg;base64,' + image.imageData" alt="{{ image.name }}" width="200" height="200">
+    <mat-card-content>
+      <p>Image ID: {{ image.id }}</p>
+    </mat-card-content>
+  </mat-card>
+</div> -->
+
+</form>
+
+<div class="uploaded-list" *ngIf="uploadedList && uploadedList.length > 0">
+    <h4>Uploaded Images</h4>
+    
+         <!-- <mat-card *ngFor="let it of uploadedList" class="image-card">
+     
+        <div class="item">
+          <div class="thumb" *ngIf="it.name">
+            <img mat-card-image [src]="'data:image/jpeg;base64,' + it.imageData" alt="{{ it.name }}" width="200" height="200" (click)="openPreview(it)">
+          </div>
+          <div class="info">
+            <div><strong>{{it.name || it.fileName}}</strong></div>
+            <div class="desc">{{it.description}}</div>
+            <div class="meta-small">{{it.fileName}}</div>
+            <div class="item-actions">
+              <button (click)="openPreview(it)">Preview</button>
+              <button (click)="deleteItem(it)">Delete</button>
+            </div>
+          </div>
+        </div>
+        </mat-card> -->
+      <!-- </li> -->
+   
+<div class="card-container">
+
+<mat-grid-list cols="3" rowHeight="4:3" gutterSize="10px" aria-label="Photo gallery">
+  <mat-grid-tile *ngFor="let it of uploadedList">
+    
+    <img [src]="'data:image/jpeg;base64,' + it.imageData" alt="{{ it.name }}" [alt]="it.description" 
+        style="width: 100%; height: 100%; object-fit: scale-down; cursor: pointer;" (click)="openPreview(it)">
+     <mat-grid-tile-footer class="footer-content center-text">
+          <button mat-raised-button color="primary" (click)="openPreview(it)">Preview</button>
+              <button mat-raised-button color="warn" (click)="deleteItem(it)">Delete</button>
+        </mat-grid-tile-footer>
+</mat-grid-tile>
+</mat-grid-list>
+
+<!-- <mat-grid-list cols="4" rowHeight="300px" gutterSize="16px">
+      <mat-grid-tile *ngFor="let product of uploadedList">
+        <mat-card class="product-card">
+          <img mat-card-image [src]="'data:image/jpeg;base64,' + product.imageData" alt="{{ product.name }}" [alt]="product.description" style="width: 100%; height: 100%; object-fit: scale-down;">
+          <mat-card-content>
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description  }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>Add to Cart</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list> -->
+
+  <!-- <mat-card *ngFor="let it of uploadedList" class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ it.name }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="'data:image/jpeg;base64,' + it.imageData" alt="{{ it.name }}" width="200" height="200">
+    <mat-card-content>
+      <p class="desc">
+        {{ it.description }}
+      </p>
+    </mat-card-content>
+ 
+  </mat-card> -->
+</div>
+  </div>
+
+  <div class="modal" *ngIf="showPreviewModal" (click)="closePreview()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closePreview()">×</button>
+      <img [src]="'data:image/jpeg;base64,' + previewModalSrc"  alt="preview large" />
+    </div>
+  </div>
+

@@ -1,0 +1,153 @@
+<highcharts-chart 
+  [Highcharts]="Highcharts"
+  [options]="chartOptions"
+  style="width: 100%; height: 400px; display: block;">
+</highcharts-chart>
+
+<swiper-container class="slider-container" loop="false" navigation="true" slides-per-view="1" slides-per-group="1"
+  space-between="30" autoplay="true" autoplay-disable-on-interaction="false" [zoom]="true" zoom-max-ratio="3"
+  zoom-min-ratio="1" [pagination]="{ clickable: true }">
+  @for (projectImagePath of images; track projectImagePath) {
+  <swiper-slide class="swiper-slide">
+    <div class="swiper-zoom-container">
+      <img [src]="projectImagePath" class="slider-img" alt="">
+    </div>
+  </swiper-slide>
+  }
+</swiper-container>
+
+<!-- <mat-card>
+
+  <mat-card-title>
+    {{ selectedYear ? ('Monthly Donations - ' + selectedYear) : 'Yearly Donations' }}
+  </mat-card-title>
+
+  
+    <button *ngIf="selectedYear" type="button" class="spaced-button btn btn-danger btn-sm icon-container" (click)="goBack()"> 
+      <mat-icon aria-hidden="false" aria-label="Clear icon">clear</mat-icon>
+    ← Back to Yearly
+  </button>
+
+  <canvas
+    baseChart
+    [data]="{ labels: chartLabels, datasets: chartData }"
+    [options]="chartOptions"
+    [type]="chartType"
+    (chartClick)="onChartClick($event)">
+  </canvas>
+
+</mat-card> -->
+
+<mat-card>
+  <mat-card-content>
+
+    <span class="centered-text" style="color: brown;">
+      <mat-icon class="icon animate-bounce">public</mat-icon>
+      <span class="icon-container">About Talentify</span>
+    </span>
+
+    <p class="centered-text">
+      Talentify is a mission-driven NGO committed to building an inclusive and empowered society by unlocking
+      opportunities across education, women empowerment, healthcare, and corporate partnerships. We believe that real
+      change begins when individuals are given the right support, resources, and platform to grow.
+    </p>
+
+    <span class="centered-text" style="color: brown;">
+      <mat-icon class="icon animate-bounce">school</mat-icon>
+      <span class="icon-container">Education for All</span>
+    </span>
+    <p class="centered-text">
+      In the field of education, Talentify focuses on equipping individuals with practical, future-ready skills and
+      knowledge that enhance employability and lifelong learning. Through innovative programs and collaborations with
+      institutions, we aim to bridge the gap between learning and real-world opportunities.
+    </p>
+
+    <span class="centered-text" style="color: brown;">
+      <mat-icon class="icon animate-bounce">groups</mat-icon>
+      <span class="icon-container">Women Empowerment</span>
+    </span>
+
+    <p class="centered-text">
+      Our initiatives in women empowerment are centered on creating equal opportunities, fostering independence, and
+      supporting women in achieving their full potential. By providing skill development, mentorship, and access to
+      resources, we strive to uplift women and strengthen communities.
+    </p>
+
+    <span class="centered-text" style="color: brown;">
+      <mat-icon class="icon animate-bounce">local_hospital</mat-icon>
+      <span class="icon-container">Health & Well-being</span>
+    </span>
+    <p class="centered-text">
+      In healthcare, Talentify works towards improving awareness, accessibility, and community well-being through
+      targeted
+      programs and partnerships. We aim to ensure that quality health support reaches underserved populations,
+      contributing to a healthier and more resilient society.
+    </p>
+
+    <span class="centered-text" style="color: brown;">
+      <mat-icon class="icon animate-bounce">handshake</mat-icon>
+      <span class="icon-container">Corporate Partnerships</span>
+    </span>
+    <p class="centered-text">
+      Through strong corporate partnerships, we collaborate with organizations to scale impact, drive social
+      responsibility initiatives, and create sustainable solutions. Together, we are building a future where talent is
+      nurtured, opportunities are accessible, and communities thrive.
+    </p>
+
+
+  </mat-card-content>
+</mat-card>
+
+<!-- <div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let img of images">
+      <img [src]="img" class="slider-img" />
+    </div>
+  </div>
+
+
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div> -->
+<!-- <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
+    loop="true" paginationPlacement="outside" navigationPlacement: 'inside'> -->
+
+<!-- <swiper-container pagination="true" navigation="true" slides-per-view="1">
+  <swiper-slide>Slide 1</swiper-slide>
+  <swiper-slide>Slide 2</swiper-slide>
+  <swiper-slide>Slide 3</swiper-slide>
+</swiper-container> -->
+
+<!-- <swiper-container 
+  navigation="true" 
+  pagination="true" 
+  scrollbar="true" 
+  space-between="30" 
+  slides-per-view="1">
+ <swiper-slide>Slide 1</swiper-slide>
+  <swiper-slide>Slide 2</swiper-slide>
+  <swiper-slide>Slide 3</swiper-slide> 
+    @for (slide of slides; track slide.id) {
+    <swiper-slide>
+      <img [src]="slide.img" alt="Slide Image" />
+    </swiper-slide>
+  }
+</swiper-container> -->
+
+<!-- <div style="text-align: center; margin: 0 auto; width: 100%;">
+    <ng-image-slider [images]="imageObject" [infinite]="true" [autoSlide]="1"
+        [imageSize]="{width: '100%', height: 500}" slideImage="1"></ng-image-slider>
+</div> -->
+
+<!-- working code-->
+<!-- <ng-image-slider [images]="imageObject" #nav></ng-image-slider>   -->
+<!-- <div style=" text-align:center;margin:0; padding:0;" class="centered-content">
+                <ng-image-slider [images]="imageObject" [infinite]="false" [imagePopup]="true"
+                    [autoSlide]="{interval: 2, stopOnHover: false}" [animationSpeed]="2"
+                    [imageSize]="{width: '100%', height: '50%', space: 5}" slideImage="2">
+                </ng-image-slider>
+            </div>  -->
+
+<!-- <button (click)="prevImageClick()">Prev</button>
+        <button (click)="nextImageClick()">Next</button> -->

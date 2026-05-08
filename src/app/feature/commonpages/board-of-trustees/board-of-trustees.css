@@ -1,0 +1,69 @@
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* .container {
+  padding: 30px;
+} */
+
+.title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.subtitle {
+  text-align: center;
+  color: gray;
+  max-width: 700px;
+  margin: 10px auto 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 60px;
+}
+
+.trustee-card {
+  transition: 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.trustee-card:hover {
+  transform: translateY(-6px);
+}
+
+.role {
+  color: #3f51b5;
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 18px;
+  color: #666;
+}
+
+.parent {
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
+
+    font-weight: bold;
+    color: red;
+    font-size: 10rem;
+}
+
+h2.heading-eg {
+    text-align: center;
+    font-family: oswald, sans-serif;
+    font-size: 36px;
+    text-transform: uppercase;
+    padding-bottom: 0;
+    padding-top: 30px;
+}

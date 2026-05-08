@@ -1,0 +1,30 @@
+  .spaced-button {
+  margin-right: 8px; /* Adds 8px of space to the right of the first button */
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center; /* Vertically centers the items */
+  gap: 8px; /* Adds a consistent gap between icon and text */
+}
+
+.modal-footer-centered {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically (if needed) */
+  /* Add padding or height as needed for your design */
+}
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.471); /* Semi-transparent background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}

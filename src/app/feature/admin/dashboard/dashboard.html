@@ -1,0 +1,144 @@
+<app-breadcrumb></app-breadcrumb>
+
+<h2 style="color: #80b7f1;">Analytics Dashboard</h2>
+
+<div class="cards">
+
+  <mat-card>
+    <h3 style="font-weight: bold; color: #80b7f1;">Total Donation</h3>
+    <h2 style="color: #f44336; font-weight: bold;">{{dashboard.totalDonation | currency}}</h2>
+  </mat-card>
+
+  <mat-card>
+    <h3 style="font-weight: bold; color: #80b7f1;">Total Donors</h3>
+    <h2 style="color: #f44336; font-weight: bold;">
+      <a [routerLink]="['/donorlist']" style="color: #f44336; font-weight: bold;">{{dashboard.totalDonors}}</a>
+    </h2>
+  </mat-card>
+  <mat-card>
+
+    <div style="display: flex; gap: 15px; font-family: sans-serif;">
+      <h3 style="font-weight: bold; color: #80b7f1;">Partner Requests: </h3>
+      <h3 style="font-weight: bold; color: #f44336;">
+        <a [routerLink]="['/partneradmin']" style="color: #f44336; font-weight: bold;">{{dashboard.totalPartner}}</a>
+      </h3>
+    </div>
+    <div style="display: flex; gap: 15px; font-family: sans-serif;">
+      <h3>
+        <div style="color: #4CAF50; font-weight: bolder;">Approved: {{dashboard.partnerStatus?.APPROVED}}</div>
+      </h3>
+      <h3>
+        <div style="color: #ff9800; font-weight: bolder;">Pending: {{dashboard.partnerStatus?.PENDING}}</div>
+      </h3>
+      <h3>
+        <div style="color: #f44336; font-weight: bolder;">Rejected: {{dashboard.partnerStatus?.REJECTED}}</div>
+      </h3>
+    </div>
+
+  </mat-card>
+
+  <mat-card>
+    <h3 style="font-weight: bold; color: #80b7f1;">Email Open Rate</h3>
+    <h2 style="color: #4CAF50; font-weight: bold;">
+      {{ (dashboard.emailOpened * 100 / dashboard.emailSent) || 0 | number:'1.0-2' }}%
+    </h2>
+  </mat-card>
+
+</div>
+
+<div class="cards">
+  <!-- <div class="charts"> -->
+
+  <mat-card>
+
+    <highcharts-chart [Highcharts]="Highcharts" [options]="category3DOptions"
+      style="width: 100%; height: 400px; display: block;">
+    </highcharts-chart>
+  </mat-card>
+
+  <mat-card>
+
+    <highcharts-chart [Highcharts]="Highcharts" [options]="payment3DOptions"
+      style="width: 100%; height: 400px; display: block;">
+    </highcharts-chart>
+  </mat-card>
+
+  <!-- <mat-card>
+     <button *ngIf="isDrilldown"
+          (click)="goBackHighChart()"
+          style="position:absolute; z-index:10;">
+    ← Back
+  </button>
+
+  <highcharts-chart
+    [Highcharts]="Highcharts"
+    [options]="chartOptionsHighChart"
+    style="width: 100%; height: 450px; display: block;">
+  </highcharts-chart>
+  </mat-card> -->
+
+</div>
+
+<div class="cards">
+  <!-- <div class="charts"> -->
+
+  <mat-card>
+    <h3 style="font-weight: bold; color: #80b7f1;">Category Distribution</h3>
+    <canvas baseChart [plugins]="pieChartPlugins" [options]="pieChartOptions" [data]="pieChartData"
+      [type]="pieChartType">
+    </canvas>
+  </mat-card>
+
+  <mat-card>
+    <h3 style="font-weight: bold; color: #80b7f1;">Payment Type Distribution</h3>
+    <canvas baseChart [plugins]="pieChartPlugins" [options]="pieChartOptions" [data]="paymentTypeChartData"
+      [type]="pieChartType">
+    </canvas>
+  </mat-card>
+
+  <mat-card>
+    <h3 style="font-weight: bold; color: #80b7f1;">Top 5 Enquiries</h3>
+    <canvas id="enquiryChart"></canvas>
+  </mat-card>
+  <mat-card>
+
+    <mat-card-title>
+      <h3 style="font-weight: bold; color: #80b7f1;">{{ selectedYear ? ('Monthly Donations - ' + selectedYear) :
+        'Yearly Donations' }}</h3>
+
+    </mat-card-title>
+
+    <!-- 🔙 Back Button -->
+    <!-- <button *ngIf="selectedYear" mat-button color="primary" (click)="goBack()"> -->
+    <button *ngIf="selectedYear" type="button" class="spaced-button btn btn-danger btn-sm icon-container"
+      (click)="goBack()">
+      ← Back to Yearly
+    </button>
+
+    <canvas id="yearlyDonationChart" baseChart [data]="{ labels: chartLabels, datasets: chartData }"
+      [options]="chartOptions" [type]="chartType" (chartClick)="onChartClick($event)">
+    </canvas>
+
+  </mat-card>
+
+  <!-- </div> -->
+</div>
+
+<div class="cards">
+
+  <mat-card>
+    <h3 style="font-weight: bold; color: #80b7f1;">Avg Approval Time</h3>
+    <h2>{{dashboard.sla?.avgHours}} hrs</h2>
+  </mat-card>
+
+  <mat-card>
+    <h3 style="font-weight: bold; color: #80b7f1;">Fastest</h3>
+    <h2>{{dashboard.sla?.minHours}} hrs</h2>
+  </mat-card>
+
+  <mat-card>
+    <h3 style="font-weight: bold; color: #80b7f1;">Slowest</h3>
+    <h2>{{dashboard.sla?.maxHours}} hrs</h2>
+  </mat-card>
+
+</div>

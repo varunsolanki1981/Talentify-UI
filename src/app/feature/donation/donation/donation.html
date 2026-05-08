@@ -1,0 +1,100 @@
+<mat-card>
+
+  <div *ngIf="success" class="alert alert-success" role="alert">
+    <mat-icon matSuffix>thumb_up</mat-icon> Thanks for contacting us! We will get back to you soon.
+  </div>
+
+  <mat-card-header class="header-center">
+    <mat-card-title>Support Our NGO</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content style="padding: 24px;">
+    <form *ngIf="form" [formGroup]=form>
+
+
+      <div class="form-row">
+        <mat-form-field [style.width.px]=600 class="col-sm-4 col-md-4 col-lg-4" appearance="outline">
+          <mat-label>Name</mat-label>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput type="name" formControlName="name" placeholder="Name" required>
+          <mat-error *ngIf="form.get('name')?.invalid">Name is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field [style.width.px]=600 appearance="outline">
+          <mat-label>Email</mat-label>
+          <mat-icon matPrefix>mail</mat-icon>
+          <input matInput type="email" formControlName="email" placeholder="Email address" required>
+          <mat-error *ngIf="form.get('email')?.invalid">Email is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Amount ($)</mat-label>
+          <mat-icon matPrefix>attach_money</mat-icon>
+          <input matInput type="number" formControlName="amount" placeholder="Amount" required>
+          <mat-error *ngIf="form.get('amount')?.invalid">Amount is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>PAN Number</mat-label>
+          <mat-icon matPrefix>credit_card</mat-icon>
+          <input matInput formControlName="panNumber" placeholder="PAN Number" required>
+          <mat-error *ngIf="form.get('panNumber')?.invalid">PAN Number is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Category</mat-label>
+          <mat-icon matPrefix>category</mat-icon>
+          <mat-select formControlName="category" required>
+            <mat-option value="Education">Education</mat-option>
+            <mat-option value="Health">Health</mat-option>
+            <mat-option value="Women Empowerment">Women Empowerment</mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('category')?.invalid">Category is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Payment Mode</mat-label>
+          <mat-icon matPrefix>payment</mat-icon>
+          <mat-select formControlName="paymentMode" required>
+            <mat-option value="Cash">Cash</mat-option>
+            <mat-option value="Online">Online</mat-option>
+            <mat-option value="Cheque">Cheque</mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('paymentMode')?.invalid">Payment Mode is required</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Message</mat-label>
+          <!-- <mat-icon matPrefix>message</mat-icon> -->
+          <textarea matInput formControlName="message" placeholder="Message" required></textarea>
+          <mat-error *ngIf="form.get('message')?.invalid">Message is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <!-- <mat-icon matPrefix>home</mat-icon> -->
+          <textarea matInput formControlName="address" placeholder="Address" required></textarea>
+          <mat-error *ngIf="form.get('address')?.invalid">Address is required</mat-error>
+        </mat-form-field>
+      </div>
+      <mat-progress-spinner *ngIf="loading" diameter="30"></mat-progress-spinner>
+     
+       <p *ngIf="success" class="success">Thank you! Click here to download the invoice.</p>
+       <a *ngIf="success" href="#" (click)="downloadInvoice(this.invoiceId)">Download Invoice</a>
+    </form>
+  </mat-card-content>
+  <mat-card-actions style="justify-content: center;">
+
+    <!-- <button type="button" class="spaced-button btn btn-danger btn-sm" (click)="onReset()">Reset</button> -->
+    <button type="button" class="spaced-button btn btn-primary btn-sm" [disabled]="!form.valid" (click)="submit()">Send
+      Message</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card>

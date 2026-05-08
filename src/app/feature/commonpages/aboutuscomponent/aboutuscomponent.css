@@ -1,0 +1,22 @@
+.centered-text {
+
+    font-family: Raleway, Sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #000;
+    padding: 24px;
+    margin: auto;
+
+}
+
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h2 {
+  font-size: 32px;
+  font-weight: 600;
+}

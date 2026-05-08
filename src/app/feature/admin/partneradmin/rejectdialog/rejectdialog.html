@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Reject Partner</h2>
+
+<mat-dialog-content style="width: 750px;">
+  <mat-form-field appearance="outline" style="width:100%">
+    <mat-label>Reason</mat-label>
+    <textarea matInput [(ngModel)]="reason"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="warn" (click)="submit()">Reject</button>
+</mat-dialog-actions>

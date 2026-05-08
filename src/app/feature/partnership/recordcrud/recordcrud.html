@@ -1,0 +1,59 @@
+<app-breadcrumb></app-breadcrumb>
+<div  [class.is-loading-cursor]="isLoading"> 
+    <mat-card > 
+   <mat-card-header >
+        <mat-card-title>Record Form</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="padding: 24px;">
+
+  <form [formGroup]="form">
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category">
+        <mat-option *ngFor="let c of categories" [value]="c">
+          {{ c }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button type="button" class="spaced-button btn btn-sm btn-primary icon-container" (click)="onSubmit()">
+        <mat-icon aria-hidden="false" aria-label="Register icon">save</mat-icon>
+      {{ isEdit ? 'Update' : 'Save' }}
+    </button>
+
+    <button type="button" class="spaced-button btn btn-danger btn-sm icon-container" (click)="reset()"> 
+        <mat-icon aria-hidden="false" aria-label="Cancel icon">cancel</mat-icon> Cancel</button>
+  </form>
+    </mat-card-content>
+    </mat-card>
+</div>
+<div  [class.is-loading-cursor]="isLoading"> 
+<mat-card > 
+   <mat-card-header >
+        <mat-card-title>Records List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="padding: 24px;">
+        <ag-grid-angular
+  class="ag-theme-alpine"
+  style="width: 100%; height: 400px"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  (gridReady)="onGridReady($event)"
+  [pagination]="true"
+  >
+</ag-grid-angular>
+    </mat-card-content>
+    </mat-card>
+</div>
+
+

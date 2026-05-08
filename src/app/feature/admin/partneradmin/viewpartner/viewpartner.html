@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Partner Details</h2>
+
+<mat-dialog-content class="content">
+
+  <div class="row"><strong>Organization:</strong> {{data.organizationName}}</div>
+  <div class="row"><strong>Contact Person:</strong> {{data.contactPerson}}</div>
+  <div class="row"><strong>Email:</strong> {{data.email}}</div>
+  <div class="row"><strong>Phone:</strong> {{data.phone}}</div>
+  <div class="row"><strong>Category:</strong> {{data.category}}</div>
+  <div class="row"><strong>Address:</strong> {{data.address}}</div>
+
+  <div class="row">
+    <strong>Description:</strong>
+    <p>{{data.description}}</p>
+  </div>
+
+  <div class="row">
+    <strong>Status:</strong>
+    <span [ngClass]="data.status">{{data.status}}</span>
+  </div>
+
+  <div *ngIf="data.rejectReason" class="row reject">
+    <strong>Reject Reason:</strong>
+    <p>{{data.rejectReason}}</p>
+  </div>
+
+<div class="row">
+  <strong>Submitted:</strong>
+  {{data.createdAt | date:'medium'}}
+  ({{getTimeAgo(data.createdAt)}})
+</div>
+
+<div class="row" *ngIf="data.reviewedAt">
+  <strong>Reviewed At:</strong>
+  {{data.reviewedAt | date:'medium'}}
+</div>
+
+<div class="row" *ngIf="data.reviewedBy">
+  <strong>Reviewed By:</strong> {{data.reviewedBy}}
+</div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button type="button" class="spaced-button btn btn-sm btn-danger icon-container" mat-dialog-close>Close</button>
+</mat-dialog-actions>

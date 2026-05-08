@@ -1,0 +1,49 @@
+.summary-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+::ng-deep .charts {
+  display: flex;
+  gap: 200px;
+  flex-wrap: wrap;
+  height: 550px; /* Set your fixed height */
+}
+
+::ng-deep .chart-box {
+  position: relative;
+  height: 500px; /* Set your fixed height */
+  width: 700px;  /* Set your fixed width */
+  padding: 30px;
+}
+
+.filters {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.charts {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+mat-card {
+  flex: 1;
+  padding: 20px;
+}

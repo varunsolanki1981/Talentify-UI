@@ -1,0 +1,26 @@
+
+
+.chart-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.chart-controls .year-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chart-controls select {
+  min-width: 8rem;
+  padding: 0.3rem 0.5rem;
+}
+
+
+
+
+
+

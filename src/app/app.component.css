@@ -1,0 +1,181 @@
+/* FLEX SPACER: Takes up all available horizontal space */
+.spacer { flex: 1 1 auto; }
+
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  height: 50px !important;
+  font-size: 16px !important;
+}
+
+.mat-toolbar {
+  background-color: #80b7f1 !important;
+  color: white !important;
+}
+
+::ng-deep.mdc-button__label {
+  color: white; /* Changes the text color of the button label */
+}
+
+::ng-deep.mat-mdc-menu-item-text {
+  color: black; /* Example: Change the text color */
+  font-size: 16px; /* Example: Change the font size */
+  white-space: normal; /* Example: Allow text to wrap if needed */
+  
+}
+
+::ng-deep.mat-mdc-menu-item:hover {
+  background-color: #80b7f1 !important; /* Change to your desired hover background color */
+  color: #333 !important; /* Change to your desired hover text color */
+}
+
+.header-icon-color {
+  color: #80b7f1 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.white-icon {
+  color: white;
+}
+
+.icon-container {
+  display: inline-flex; /* Use inline-flex to keep the container inline with surrounding content */
+  align-items: center;  /* Vertically centers the children (icon and text) */
+  gap: 3px;             /* Optional: adds some space between the icon and the text */
+}
+
+/* .mat-divider.mat-divider-vertical {
+  height: 30px; 
+  margin: 0 5px; 
+  border-right-style: solid;
+  border-right-width: 2px;
+} */
+
+.mat-divider.mat-divider-vertical {
+  border-right-width: 1px; /* Sets the thickness */
+  border-right-style: solid; /* Sets the line style */
+  border-right-color: rgba(0, 0, 0, 0.12); /* Sets the color (default material gray) */
+  height: 100%; /* Ensures the divider spans the container height */
+  margin: 0 8px; /* Adds spacing around the divider */
+}
+
+
+.mat-drawer-opened {
+  height: 100%;
+  overflow: auto;
+  width: 250px;
+}
+
+.mat-sidenav-container {
+  height: 100vh;
+}
+
+/* --- NEW: High-Contrast Active Tab --- */
+.active-link {
+    background-color: rgba(26, 35, 126, 0.12) !important;
+    color: #1a237e !important;
+    border-left: 4px solid #1a237e; /* The "Indicator Bar" */
+    border-radius: 0 8px 8px 0 !important;
+    
+    mat-icon[matListItemIcon] { color: #1a237e !important; }
+    span[matListItemTitle] { font-weight: 700 !important; }
+}
+
+/* PAGE WRAPPER: Ensures content is padded and pushes footer to bottom */
+.page-wrapper { 
+    padding: 24px; 
+    min-height: calc(100vh - 128px); /* Height minus Header and Footer */
+}
+
+
+/* FOOTER: Minimal styling for the bottom of the page */
+.app-footer { 
+    padding: 16px; 
+    text-align: center; 
+    background-color: #f5f5f5; 
+    border-top: 1px solid #e0e0e0; 
+}
+
+.app-header {
+    background-color: #1a237e; /* Deep Navy Blue */
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+
+    /* Fix: Ensures all buttons and icons inside the header are white */
+    button, mat-icon {
+        color: white !important;
+    }
+
+    /* NEW: Username styling */
+    .user-profile {
+        display: flex;
+        align-items: center;
+        margin-right: 16px;
+        padding-right: 16px;
+        border-right: 1px solid rgba(255, 255, 255, 0.3); /* Subtle vertical divider */
+
+        mat-icon { margin-right: 8px; font-size: 24px; }
+        .username { font-weight: 500; font-size: 0.9rem; }
+    }
+}
+
+/* SHELL LAYOUT: Flex column allows header on top and content below */
+.app-container { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100vh; 
+}
+
+/* FLEX SPACER: Takes up all available horizontal space */
+.spacer { flex: 1 1 auto; }
+
+/* SIDENAV: Fixed width and subtle border */
+.app-sidenav { 
+    background-color: #ffffff; /* Brighter white */
+    mat-nav-list { padding-top: 12px; }
+
+    a[mat-list-item] {
+        margin: 4px 0; /* Vertical gap between rows */
+        height: 48px !important;
+        cursor: pointer !important;
+    } 
+}
+
+.blink-button {
+  background-color: red; /* Example background color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  /* Apply the animation */
+  animation: smooth-blink 1.5s infinite;
+}
+
+@keyframes smooth-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

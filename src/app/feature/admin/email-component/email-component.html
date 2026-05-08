@@ -1,0 +1,58 @@
+<!-- <app-normal-header></app-normal-header> -->
+<div class="container">
+    @if (isLoading()) {
+    <div class="spinner-overlay">
+      <mat-progress-spinner 
+        mode="indeterminate" 
+        diameter="50">
+      </mat-progress-spinner>
+      <p>Loading...</p>
+    </div>
+  }
+</div>
+
+<mat-card>
+
+  <mat-card-header>
+    <mat-card-title>Reply to {{ dataForChild.fullName }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content style="padding: 24px;">
+    <form *ngIf="emailForm" [formGroup]=emailForm (ngSubmit)="onSubmit()">
+      <div>
+       
+          <input matInput type="id" formControlName="id" hidden>
+          <mat-form-field [style.width.px]=600 class="col-sm-4 col-md-4 col-lg-4" appearance="outline">
+            <mat-label>To</mat-label>
+            <mat-icon matSuffix>mail</mat-icon>
+            <input matInput type="toList" formControlName="toList" placeholder="Email address" required>
+            <mat-error *ngIf="emailForm.get('toList')?.invalid">Email is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field [style.width.px]=600 class="col-sm-4 col-md-4 col-lg-4" appearance="outline">
+            <mat-label>Subject</mat-label>
+            <mat-icon matSuffix>co_present</mat-icon>
+            <input matInput name="subject" formControlName="subject" placeholder="Full Name" required>
+            <mat-error *ngIf="emailForm.get('subject')?.invalid">Full Name is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field [style.width.px]=600 class="col-sm-4 col-md-4 col-lg-4" appearance="outline">
+            <mat-label>Comment</mat-label>
+            <mat-icon matSuffix>comment</mat-icon>
+            <textarea matInput name="body" formControlName="body" placeholder="Comment" required></textarea>
+            <mat-error *ngIf="emailForm.get('body')?.invalid">Message is required</mat-error>
+          </mat-form-field>
+       
+ </div>
+  </form>
+</mat-card-content>
+
+  <mat-card-actions class="modal-footer-centered">
+    <!-- <button mat-raised-button color="btn-light" type="submit" (click)="onReset()">Reset</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!emailForm.valid">Send Message</button> -->
+
+     <button type="button" class="spaced-button btn btn-danger btn-sm icon-text-container" (click)="onReset()">
+        Cancel <mat-icon matSuffix>cancel</mat-icon></button>
+      <button type="button" class="spaced-button btn btn-primary btn-sm icon-text-container" [disabled]="!emailForm.valid" (click)="onSubmit()">
+        Send  <mat-icon matSuffix>send</mat-icon></button>
+  </mat-card-actions>
+</mat-card>

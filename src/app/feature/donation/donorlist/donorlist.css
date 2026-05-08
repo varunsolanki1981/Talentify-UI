@@ -1,0 +1,47 @@
+.btn-download {
+  background: #4caf50;
+  color: white;
+  margin-right: 5px;
+}
+
+.btn-delete {
+  background: #f44336;
+  color: white;
+}
+
+.spaced-button {
+  margin-right: 8px; /* Adds 8px of space to the right of the first button */
+}
+
+/* align image with text in button */
+.icon-container {
+  display: inline-flex; /* Use inline-flex to keep the container inline with surrounding content */
+  align-items: center;  /* Vertically centers the children (icon and text) */
+  gap: 3px;             /* Optional: adds some space between the icon and the text */
+}
+
+.btn-resend {
+  background: #2196f3;
+  color: white;
+  margin-right: 5px;
+}
+
+/* Fix for modern Angular versions */
+/* .mat-mdc-snack-bar-container.success-snackbar .mdc-snackbar__surface {
+  background-color: #43a047 !important;
+}
+
+.success-snackbar .mdc-snackbar__label {
+  color: white !important;
+} */
+
+/* ::ng-deep .success-snackbar {
+  background-color: green;
+} */
+
+.mat-mdc-snack-bar-container.success-snackbar {
+  --mat-mdc-snack-bar-button-color: #fff;
+  --mdc-snackbar-container-color: #28a745;
+  --mdc-snackbar-supporting-text-color: #fff;
+}
+

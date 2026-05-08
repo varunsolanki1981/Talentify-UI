@@ -1,0 +1,93 @@
+<div>
+    <img src="../../../../assets/corporate.png" alt="Corporate Partnerships"
+        class="responsive-image centered-image" style="width: 100%; height: auto;">
+
+<div class="container">
+
+
+     <!-- Header -->
+        <div class="header">
+            <h2 class="parent heading-eg" style="color: #80b7f1 !important; font-size: 24px;">Corporate Partnerships
+            </h2>
+            <p>
+                Collaborating with corporate companies to drive social impact through strategic CSR initiatives and
+                partnerships.
+        </div>
+  <!-- Header -->
+  
+  <!-- Cards -->
+  <div class="grid">
+
+    <mat-card class="card" appScrollAnimate>
+      <mat-icon color="primary">business</mat-icon>
+      <h2>What We Offer</h2>
+      <ul>
+        <li>CSR program execution</li>
+        <li>Employee volunteering</li>
+        <li>Community outreach</li>
+        <li>Women empowerment programs</li>
+        <li>Skill development initiatives</li>
+      </ul>
+    </mat-card>
+
+    <mat-card class="card" appScrollAnimate>
+      <mat-icon color="accent">insights</mat-icon>
+      <h2>Partnership Benefits</h2>
+      <ul>
+        <li>Transparent impact reporting</li>
+        <li>Custom CSR models</li>
+        <li>Brand visibility</li>
+        <li>Community engagement</li>
+        <li>ESG alignment support</li>
+      </ul>
+    </mat-card>
+
+    <mat-card class="card" appScrollAnimate>
+      <mat-icon color="warn">groups</mat-icon>
+      <h2>Who We Work With</h2>
+      <ul>
+        <li>Corporate companies</li>
+        <li>Startups</li>
+        <li>CSR foundations</li>
+        <li>Impact organizations</li>
+        <li>Social enterprises</li>
+      </ul>
+    </mat-card>
+
+  </div>
+
+  <div class="card-grid">
+        @for (item of items; track item.id) {
+            <mat-card appearance="outlined">
+            <!-- <mat-card-header [style.background-color]="getRandomColor()" style="color: white;"> -->
+                <mat-card-header style="color: white; background-color: #80b7f1 !important;">
+                
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{ item.title }}</mat-card-title>
+                <!-- <mat-card-subtitle>{{ item.subtitle }}</mat-card-subtitle> -->
+            </mat-card-header>
+            
+            <mat-card-content style="text-align: center; font-size:18px; line-height:24px;">
+                <p>{{ item.description }}</p>
+            </mat-card-content>
+            
+            <mat-card-actions>
+                <button mat-button style="color: #da291c;">LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+            </mat-card>
+        }
+    </div>
+    
+  <!-- CTA -->
+  <div class="cta" appScrollAnimate>
+    <h2>Let’s Build Impact Together</h2>
+    <p>Join hands with Talentify to create sustainable CSR-driven social change.</p>
+
+    <button mat-raised-button color="primary">
+      Become a Corporate Partner
+    </button>
+  </div>
+
+</div>
+</div>

@@ -1,0 +1,32 @@
+.form-row {
+  display: flex;
+  gap: 20px; /* Adds space between the fields */
+}
+
+.form-row mat-form-field {
+  flex: 1; /* Makes each field take up equal space */
+}
+
+.my-form{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.full-width {
+  width: 100%;
+}
+
+.spaced-button {
+  margin-right: 8px; /* Adds 8px of space to the right of the first button */
+}
+
+/* In src/styles.scss or styles.css */
+.center-snackbar {
+  /* Targets the parent overlay wrapper that handles vertical positioning */
+  align-items: center !important; 
+  
+  /* Optional: Also center the text inside the simple snackbar component */
+  .mat-simple-snackbar {
+    justify-content: center !important;
+  }
+}

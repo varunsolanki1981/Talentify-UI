@@ -1,0 +1,44 @@
+<div>
+    <img src="../../../../assets/our-team.webp" alt="Engagement with Government" style="width: 100%; height: auto;">
+
+    
+    <!-- <div style="font-size: 24px; font-weight: bold; margin-top: 20px;">
+        <h1 class="heading-eg">Board of Trustees</h1>
+    </div> -->
+
+<div class="container">
+ <h2 class="parent heading-eg" style="color: #80b7f1 !important; font-size: 24px;">Our Leadership Team</h2>
+ 
+  <p class="subtitle">
+    Meet the dedicated individuals guiding Talentify’s mission of education, empowerment, and social impact.
+  </p>
+
+  <div class="grid">
+
+    <!-- Trustee Card -->
+    <mat-card class="trustee-card" *ngFor="let member of trustees">
+
+      <img mat-card-image [src]="member.image" alt="trustee image" />
+
+      <mat-card-content>
+        <h3>{{ member.name }}</h3>
+        <p class="role">{{ member.role }}</p>
+        <p class="desc">{{ member.description }}</p>
+      </mat-card-content>
+
+      <mat-divider></mat-divider>
+
+      <mat-card-actions align="end">
+        <button mat-icon-button color="primary">
+          <mat-icon>email</mat-icon>
+        </button>
+        <button mat-icon-button color="accent">
+          <mat-icon>link</mat-icon>
+        </button>
+      </mat-card-actions>
+
+    </mat-card>
+
+  </div>
+</div>
+</div>

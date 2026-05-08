@@ -1,0 +1,15 @@
+
+<h1 mat-dialog-title>{{data.title}}</h1>
+    <div mat-dialog-content>
+      <p>{{data.message}}</p>
+    </div>
+    <div mat-dialog-actions class="actions-center">
+      <!-- <button mat-button (click)="onNoClick()">No</button> -->
+      <button type="button" class="spaced-button btn btn-primary btn-sm icon-container" [mat-dialog-close]="true" cdkFocusInitial>
+        <mat-icon aria-hidden="false" aria-label="Clear icon">check</mat-icon>
+        Yes</button>
+      <button type="button" class="spaced-button btn btn-danger btn-sm icon-container" (click)="onNoClick()">
+        <mat-icon aria-hidden="false" aria-label="Clear icon">clear</mat-icon>
+        No
+      </button>
+    </div>

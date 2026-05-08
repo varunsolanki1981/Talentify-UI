@@ -1,0 +1,95 @@
+<div>
+    <img src="../../../../assets/institutions.webp" alt="Institutional Partnerships"
+        class="responsive-image centered-image" style="width: 100%; height: auto;">
+
+    <!-- <mat-toolbar color="primary">
+  <span>Institutional Partnerships</span>
+</mat-toolbar> -->
+
+    <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <h2 class="parent heading-eg" style="color: #80b7f1 !important; font-size: 24px;">Partner With Talentify
+            </h2>
+            <p>
+                Collaborating with institutions to create scalable social impact in education, health, and empowerment.
+            </p>
+        </div>
+
+        <!-- Content Cards -->
+        <div class="grid">
+
+            <mat-card class="card" appScrollAnimate>
+                <mat-icon color="primary">groups</mat-icon>
+                <h2>Who We Partner With</h2>
+                <ul>
+                    <li>Schools & Universities</li>
+                    <li>Government Organizations</li>
+                    <li>Corporate CSR Teams</li>
+                    <li>NGOs & Foundations</li>
+                    <li>Research Institutions</li>
+                </ul>
+            </mat-card>
+
+            <mat-card class="card" appScrollAnimate>
+                <mat-icon color="accent">emoji_events</mat-icon>
+                <h2>Partnership Goals</h2>
+                <ul>
+                    <li>Education accessibility programs</li>
+                    <li>Women empowerment initiatives</li>
+                    <li>Healthcare outreach campaigns</li>
+                    <li>CSR project implementation</li>
+                    <li>Sustainable development models</li>
+                </ul>
+            </mat-card>
+
+            <mat-card class="card" appScrollAnimate>
+                <mat-icon color="warn">handshake</mat-icon>
+                <h2>Why Partner With Us?</h2>
+                <ul>
+                    <li>Transparent operations</li>
+                    <li>Strong community network</li>
+                    <li>Measurable impact reports</li>
+                    <li>Flexible collaboration models</li>
+                    <li>Long-term engagement</li>
+                </ul>
+            </mat-card>
+
+        </div>
+
+        <div class="card-grid">
+        @for (item of items; track item.id) {
+            <mat-card appearance="outlined">
+            <!-- <mat-card-header [style.background-color]="getRandomColor()" style="color: white;"> -->
+                <mat-card-header style="color: white; background-color: #80b7f1 !important;">
+                
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{ item.title }}</mat-card-title>
+                <!-- <mat-card-subtitle>{{ item.subtitle }}</mat-card-subtitle> -->
+            </mat-card-header>
+            
+            <mat-card-content style="text-align: center; font-size:18px; line-height:24px;">
+                <p>{{ item.description }}</p>
+            </mat-card-content>
+            
+            <mat-card-actions>
+                <button mat-button style="color: #da291c;">LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+            </mat-card>
+        }
+    </div>
+    
+        <!-- CTA Section -->
+        <div class="cta" appScrollAnimate>
+            <h2>Let’s Create Impact Together</h2>
+            <p>Join hands with Talentify to build a better, more empowered society.</p>
+
+            <button mat-raised-button color="primary">
+                Become a Partner
+            </button>
+        </div>
+
+    </div>
+</div>

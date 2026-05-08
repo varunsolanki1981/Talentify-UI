@@ -1,0 +1,94 @@
+<div>
+    <img src="../../../../assets/Engagement-with-government.jpg" alt="Engagement with Government"
+        class="responsive-image centered-image" style="width: 100%; height: auto;">
+
+        <div class="container">
+
+        <!-- Header -->
+        <div class="header">
+            <h2 class="parent heading-eg" style="color: #80b7f1 !important; font-size: 24px;">Engagement with Government
+            </h2>
+            <p>
+                Collaborating with government entities to drive innovation, enhance public services, and foster economic growth.
+            </p>
+        </div>
+
+    <p class="centered-text">
+        At Talentfy, we understand the critical role that government partnerships play in fostering innovation and
+        driving economic growth. Our Engagement with Government services are designed to help public sector
+        organizations leverage our expertise in talent development, workforce solutions, and technology integration to
+        achieve their goals.
+    </p>
+    <p
+        class="centered-text">
+        We collaborate closely with government agencies to identify their unique challenges and opportunities, providing
+        tailored solutions that enhance workforce capabilities, streamline operations, and promote digital
+        transformation. Whether it's through training programs, strategic consulting, or technology implementation,
+        Talentfy is committed to supporting government entities in their mission to serve the public effectively.
+    </p>
+    <p
+        class="centered-text">
+        Some of the key government engagements, especially around policies for children, can be listed as follows:
+    </p>
+
+    <div class="card-grid">
+        @for (item of items; track item.id) {
+            <mat-card appearance="outlined">
+            <!-- <mat-card-header [style.background-color]="getRandomColor()" style="color: white;"> -->
+                <mat-card-header style="color: white; background-color: #80b7f1 !important;">
+                
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{ item.title }}</mat-card-title>
+                <!-- <mat-card-subtitle>{{ item.subtitle }}</mat-card-subtitle> -->
+            </mat-card-header>
+            
+            <mat-card-content style="text-align: center; font-size:18px; line-height:24px; width: 750px;">
+                <p style="overflow-wrap: break-word;"> {{ item.description }}</p>
+            </mat-card-content>
+            
+            <mat-card-actions>
+                <button mat-button style="color: #da291c;">LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+            </mat-card>
+        }
+    </div>
+        </div>
+
+<!-- <div class="card-grid">
+  <mat-card>
+    <mat-card-header><mat-card-title>Card 1</mat-card-title></mat-card-header>
+    <mat-card-content>Content for card one.</mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header><mat-card-title>Card 2</mat-card-title></mat-card-header>
+    <mat-card-content>Content for card two.</mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header><mat-card-title>Card 3</mat-card-title></mat-card-header>
+    <mat-card-content>Content for card three.</mat-card-content>
+  </mat-card>
+</div> -->
+
+    <!-- <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
+            alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button matButton>LIKE</button>
+            <button matButton>SHARE</button>
+        </mat-card-actions>
+    </mat-card> -->

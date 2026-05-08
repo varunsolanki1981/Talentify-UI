@@ -1,0 +1,6 @@
+.center-actions {
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  /* Optional: adds some padding/margin if needed */
+   padding: 80px; 
+}

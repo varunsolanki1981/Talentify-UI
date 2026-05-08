@@ -1,0 +1,114 @@
+/* src/app/contact-page/contact-page.component.css */
+
+
+/* mat-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+} */
+
+/* mat-form-field {
+  width: 100%;
+} */
+
+/* button {
+  width: 100%;
+  margin-top: 10px;
+} */
+
+/* .card-signin {
+    border: 0;
+    border-radius: 1rem;
+  }
+  
+  .card-signin .card-title {
+    margin-bottom: 2rem;
+    font-weight: 100;
+    font-size: 1.5rem;
+  }
+  
+  .card-signin .card-body {
+    padding: 2rem;
+    height: 50%;
+  } */
+
+   div.transbox {
+    background-color: #ffffff;
+    opacity: 0.8;
+  }
+
+  .rightpane{
+  width: 50%;
+  min-width: 450px;
+  float: left;
+ border-collapse: collapse;
+ padding: 20px;
+}
+
+.mapouter{
+  position:relative;
+  text-align:right;
+   width:100%;
+}
+
+.gmap_canvas {
+  overflow:hidden;
+  background:none!important;
+  height:275px;
+  width:100%;
+}
+
+.column-1 {
+  float: left;
+  width: 23%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card-1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.container-1 {
+  padding: 0 16px;
+}
+
+.container-1::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px; /* Adds space between the fields */
+}
+
+.form-row mat-form-field {
+  flex: 1; /* Makes each field take up equal space */
+}
+
+.card-signin {
+    border: 0;
+    border-radius: 1rem;
+  }
+
+.card-signin .card-body {
+    padding: 2rem;
+    height: 50%;
+  }
+
+  .spaced-button {
+  margin-right: 8px; /* Adds 8px of space to the right of the first button */
+}
+
+.white-icon {
+  color: white;
+}
+
+.icon-container {
+  display: inline-flex; /* Use inline-flex to keep the container inline with surrounding content */
+  align-items: center;  /* Vertically centers the children (icon and text) */
+  gap: 3px;             /* Optional: adds some space between the icon and the text */
+}

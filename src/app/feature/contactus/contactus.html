@@ -1,0 +1,97 @@
+<mat-card>
+
+<div *ngIf="successMessage" class="alert alert-success" role="alert">
+  <mat-icon matSuffix>thumb_up</mat-icon> Thanks for contacting us! We will get back to you soon.
+</div>
+  <mat-card-header>
+    <mat-card-title>Contact Us</mat-card-title>
+  </mat-card-header>
+  <mat-card-content style="padding: 24px;">
+    <form *ngIf="contactForm" [formGroup]=contactForm (ngSubmit)="onSubmit()">
+      <div>
+       
+        <div class="form-row">
+          <mat-form-field [style.width.px]=600 class="col-sm-4 col-md-4 col-lg-4" appearance="outline">
+            <mat-label>Email</mat-label>
+            <mat-icon matSuffix>mail</mat-icon>
+            <input matInput type="email" formControlName="email" placeholder="Email address" required>
+            <mat-error *ngIf="contactForm.get('email')?.invalid">Email is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field [style.width.px]=600 appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <mat-icon matSuffix>co_present</mat-icon>
+            <input matInput name="fullName" formControlName="fullName" placeholder="Full Name" required>
+            <mat-error *ngIf="contactForm.get('fullName')?.invalid">Full Name is required</mat-error>
+          </mat-form-field>
+        </div>
+         
+        <mat-form-field [style.width.px]=1240  appearance="outline">
+            <mat-label>Subject</mat-label>
+            <mat-icon matSuffix>co_present</mat-icon>
+            <input matInput name="subject" formControlName="subject" placeholder="Subject" required>
+            <mat-error *ngIf="contactForm.get('subject')?.invalid">Subject is required</mat-error>
+          </mat-form-field>
+
+        <div class="form-row">
+          <mat-form-field [style.width.px]=600  appearance="outline">
+            <mat-label>Mobile Number</mat-label>
+            <mat-icon matSuffix>call</mat-icon>
+            <input matInput name="mobile" formControlName="mobile" placeholder="Mobile Number" required>
+            <mat-error *ngIf="contactForm.get('mobile')?.invalid">Mobile Number is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field [style.width.px]=600 class="col-sm-4 col-md-4 col-lg-4" appearance="outline">
+            <mat-label>Comment</mat-label>
+            <mat-icon matSuffix>comment</mat-icon>
+            <textarea matInput name="comment" formControlName="comment" placeholder="Comment" required></textarea>
+            <mat-error *ngIf="contactForm.get('comment')?.invalid">Message is required</mat-error>
+          </mat-form-field>
+        </div>
+ </div>
+  </form>
+</mat-card-content>
+
+  <mat-card-actions>
+    <!-- <button mat-raised-button color="btn-light" type="submit" (click)="onReset()">Reset</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid">Send Message</button> -->
+
+     <button type="button" class="spaced-button btn btn-danger btn-sm" (click)="onReset()">Reset</button>
+      <button type="button" class="spaced-button btn btn-primary btn-sm" [disabled]="!contactForm.valid" (click)="onSubmit()">Send Message</button>
+  </mat-card-actions>
+  <mat-divider></mat-divider>
+
+      <div class="form-row" style="padding: 8px;">
+      <div class="rightpane">
+        <div class="card">
+          <div class="mapouter">
+            <div class="gmap_canvas">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15126.257651228258!2d73.79236390172134!3d18.593666608013308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b91b0dd95daf%3A0xa6cb6e3796a09978!2sPimple%20Saudagar%2C%20Pimpri-Chinchwad%2C%20Maharashtra%2C%20India!5e0!3m2!1sen!2sus!4v1722961853977!5m2!1sen!2sus"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" align="left"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="rightpane">
+        <p>
+        <span class="icon-container" ><mat-icon >home</mat-icon>Registered Office :Pimple saudagar, Pune - 411027
+          Maharashtra, India</span>
+        </p>
+        <p>
+          <span class="icon-container" ><mat-icon >work</mat-icon>Works: Pimple saudagar, Pune - 411027 Maharashtra,
+          India</span>
+        </p>
+        <p>
+          <span class="icon-container" ><mat-icon >work</mat-icon>Local Inquiry: +91 8888850000</span>
+        </p>
+        <p>
+          <span class="icon-container" ><mat-icon >work</mat-icon>Email : xyz&#64;abc.com</span>
+        </p>
+       
+      </div>
+</div>
+
+</mat-card>

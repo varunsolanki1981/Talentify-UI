@@ -1,0 +1,80 @@
+.form-row {
+  display: flex;
+  gap: 20px; /* Adds space between the fields */
+}
+
+.form-row mat-form-field {
+  flex: 1; /* Makes each field take up equal space */
+}
+
+.my-form{
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.full-width {
+  width: 100%;
+}
+
+.spaced-button {
+  margin-right: 8px; /* Adds 8px of space to the right of the first button */
+}
+
+/* ========================================= */
+/* 1. CONTAINER: CENTERING THE LOGIN CARD    */
+/* ========================================= */
+
+.login-container {
+    /* Use Flexbox to position the card within the view */
+    display: flex;
+    
+    /* Center the card horizontally (left-to-right) */
+    justify-content: center;
+    
+    /* Add space above the card to push it down from the top edge */
+    padding-top: 30px; 
+}
+
+/* ========================================= */
+/* 2. CARD SIZING AND STYLING                */
+/* ========================================= */
+
+.login-card {
+    /* Set a maximum width for a clean look on large screens */
+    max-width: 700px;
+    
+    /* Ensure the card is fully responsive */
+    width: 100%; 
+    
+    /* Add some internal padding inside the card */
+    /* padding: 24px; */
+
+    height: auto;
+}
+
+/* Center the User Login title (used on mat-card-header) */
+.header-center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px; 
+}
+
+/* Center the content inside the card actions (where the Login button is) */
+.actions-center {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+
+/* Center the text (like "Don't have an account?") */
+.footer-center {
+    text-align: center;
+    margin-top: 16px;
+}
+
+/* align image with text in button */
+.icon-container {
+  display: inline-flex; /* Use inline-flex to keep the container inline with surrounding content */
+  align-items: center;  /* Vertically centers the children (icon and text) */
+  gap: 3px;             /* Optional: adds some space between the icon and the text */
+}

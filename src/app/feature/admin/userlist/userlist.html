@@ -1,0 +1,18 @@
+<app-breadcrumb></app-breadcrumb>
+<mat-card class="my-card">
+    <mat-card-content style="padding: 24px;">
+        <mat-icon style="cursor: pointer; display: flex; justify-content: flex-end; width: 100%;" (click)="refresh()" iconPositionEnd>refresh</mat-icon>
+        <!-- <span class="card-title">User List</span> -->
+        <div class="content">
+            <!-- The AG Grid component, with Dimensions, CSS Theme, Row Data, and Column Definition -->
+            <ag-grid-angular style="width: 100%; height: 550px;" [rowData]="rowData" [columnDefs]="colDefs"
+                (gridReady)="onGridReady($event)" [pagination]="true" [defaultColDef]="defaultColDef"
+                (cellValueChanged)="onCellValueChanged($event)" (selectionChanged)="onSelectionChanged($event)"
+                (filterOpened)="onFilterOpened($event)" (filterChanged)="onFilterChanged($event)"
+                (filterModified)="onFilterModified($event)" [paginationAutoPageSize]="true" 
+                />
+                <!-- [theme]="theme"/> -->
+
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,206 @@
+<ng-container *ngIf="authService.user$ | async as user; else publicView">
+    <div class="app-container">
+        
+        <!-- This div is for Header, to check if the user is logged in or not, 
+         and to display the username in the header. -->
+        <mat-toolbar color="primary" class="app-header">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span style="cursor: pointer;" (click)="navTo('')" class="spacer">Telentify foundation</span>
+            <span class="spacer"></span>
+
+            <mat-divider vertical></mat-divider>
+             <span class="icon-container blink-button" style="cursor: pointer;" (click)="navTo('/auth/donation')">Donate Now</span>
+
+            <mat-divider vertical></mat-divider>
+            <span class="icon-container" style="cursor: pointer;" [matMenuTriggerFor]="whoweareMenu" >
+                <mat-icon class="white-icon" >keyboard_arrow_down</mat-icon>Who We Are</span>
+            <mat-menu #whoweareMenu="matMenu">
+                <button mat-menu-item (click)="navTo('aboutus')"><mat-icon>info</mat-icon>About Us</button>
+                <button mat-menu-item (click)="navTo('board-of-trustees')"><mat-icon>groups2</mat-icon>Board of Trustees</button>
+                <button mat-menu-item (click)="navTo('mission-and-vision')"><mat-icon>description</mat-icon>Our Mission And
+                Vision</button>
+            </mat-menu>
+
+
+            <mat-divider vertical></mat-divider>
+            <span class="icon-container" style="cursor: pointer;" [matMenuTriggerFor]="whatwedoMenu" >
+                <mat-icon class="white-icon" >keyboard_arrow_down</mat-icon>What We Do</span>
+            <mat-menu #whatwedoMenu="matMenu">
+                <button mat-menu-item (click)="navTo('education')"><mat-icon>school</mat-icon>Education</button>
+                <button mat-menu-item (click)="navTo('health')"><mat-icon>health_and_safety</mat-icon>Health</button>
+                <button mat-menu-item (click)="navTo('livelihood')"><mat-icon>home</mat-icon>Livelihood</button>
+                <button mat-menu-item (click)="navTo('women-empowerment')"><mat-icon>woman</mat-icon>Women Empowerment</button>
+            </mat-menu>
+
+
+            <mat-divider vertical></mat-divider>
+            <span class="icon-container" style="cursor: pointer;" [matMenuTriggerFor]="partnerMenu" >
+                    <mat-icon class="white-icon" >keyboard_arrow_down</mat-icon>Partnership</span>
+            <mat-menu #partnerMenu="matMenu">
+                <button mat-menu-item (click)="navTo('institutional')"><mat-icon>school</mat-icon>Institutional Partnership</button>
+                <button mat-menu-item (click)="navTo('corporate')"><mat-icon>apartment</mat-icon>Corporate Partnership</button>
+                <button mat-menu-item (click)="navTo('engagement')"><mat-icon>assured_workload</mat-icon>Engagement with Government</button>
+            </mat-menu>
+
+            <mat-divider vertical></mat-divider>
+             <span class="icon-container" style="cursor: pointer;" (click)="navTo('/auth/contactus')">Contact us</span>
+             
+            <mat-divider vertical></mat-divider>
+            <span class="user-profile icon-container" style="cursor: pointer;" [matMenuTriggerFor]="loginMenu">
+                <mat-icon class="white-icon">account_circle</mat-icon>
+                <span class="icon-container">{{ user.username }}</span>
+            </span>
+            <mat-menu #loginMenu="matMenu">
+                <button mat-menu-item (click)="navTo('profile')"><mat-icon>person</mat-icon>Profile</button>
+                <button mat-menu-item (click)="onLogout()"><mat-icon>logout</mat-icon>Logout</button>
+            </mat-menu>
+        </mat-toolbar>
+
+        <!-- This div is for the sidenav, to check if the user is logged in or not, 
+         and to display the sidenav. The sidenav will be displayed only if the user is logged in. 
+         The sidenav will have different options based on the role of the user. 
+         If the user is an admin, then the admin options will be displayed in the sidenav. 
+         If the user is a regular user, then the regular user options will be displayed in the sidenav. -->
+
+        <mat-sidenav-container class="app-sidenav-container">
+            <mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+                <mat-nav-list>
+
+                    <a mat-list-item routerLink="/auth/donation" *ngIf="user.roles.includes('ROLE_USER')" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+                        <mat-icon matListItemIcon>dashboard</mat-icon>
+                        <span matListItemTitle>Donate</span>
+                    </a>
+
+                    <a mat-list-item routerLink="/dashboard" *ngIf="user.roles.includes('ROLE_ADMIN')" routerLinkActive="active-link">
+                        <mat-icon matListItemIcon>dashboard</mat-icon>
+                        <span matListItemTitle>Dashboard</span>
+                    </a>
+
+                    <a mat-list-item routerLink="/userlist" *ngIf="user.roles.includes('ROLE_ADMIN')" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+                        <mat-icon matListItemIcon>people</mat-icon>
+                        <span matListItemTitle>User List</span>
+                    </a>
+
+                    <a mat-list-item routerLink="/enquiries" *ngIf="user.roles.includes('ROLE_ADMIN')" routerLinkActive="active-link">
+                        <mat-icon matListItemIcon>admin_panel_settings</mat-icon>
+                        <span matListItemTitle>Enquiries</span>
+                    </a>
+
+                    <a mat-list-item routerLink="/images" *ngIf="user.roles.includes('ROLE_ADMIN')" routerLinkActive="active-link">
+                        <mat-icon matListItemIcon>images</mat-icon>
+                        <span matListItemTitle>Images</span>
+                    </a> 
+
+                     <a mat-list-item routerLink="/record-crud" *ngIf="user.roles.includes('ROLE_ADMIN')" routerLinkActive="active-link">
+                        <mat-icon matListItemIcon>description</mat-icon>
+                        <span matListItemTitle>Card's</span>
+                    </a> 
+
+                     <a mat-list-item routerLink="/donorlist" *ngIf="user.roles.includes('ROLE_ADMIN')" routerLinkActive="active-link">
+                        <mat-icon matListItemIcon>format_list_bulleted</mat-icon>
+                        <span matListItemTitle>Donor List</span>
+                     </a>
+
+                    <a mat-list-item routerLink="/partneradmin" *ngIf="user.roles.includes('ROLE_ADMIN')" routerLinkActive="active-link">
+                        <mat-icon matListItemIcon>format_list_bulleted</mat-icon>
+                        <span matListItemTitle>Partner Requests</span>
+                     </a>     
+                     
+                     <a mat-list-item routerLink="/dashboardhighchart" *ngIf="user.roles.includes('ROLE_ADMIN')" routerLinkActive="active-link">
+                        <mat-icon matListItemIcon>format_list_bulleted</mat-icon>
+                        <span matListItemTitle>Dashboard Highchart</span>
+                     </a>  
+
+                </mat-nav-list>
+            </mat-sidenav>
+
+            <mat-sidenav-content class="app-content">
+                <div class="page-wrapper">
+                    <router-outlet></router-outlet>
+                </div>
+
+                <footer class="app-footer">
+                    <p>&copy; 2026 Telentify foundation</p>
+                </footer>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    </div>
+</ng-container>
+
+<!-- This is the public view of the application, which will be displayed when the user is not logged in. 
+The public view will have a different header and a different set of options in the header. 
+The public view will also have a different set of routes that can be accessed by the user. 
+The public view will have a router outlet to display the components based on the 
+routes defined in the app-routing.module.ts file. -->
+<ng-container>
+    <ng-template #publicView>
+        <mat-toolbar color="primary" class="app-header">
+            
+            <span style="cursor: pointer;" (click)="navTo('')" class="spacer">Telentify foundation</span>
+            
+            <mat-divider vertical></mat-divider>
+            <span class="icon-container blink-button" style="cursor: pointer;" (click)="navTo('/auth/donation')">Donate Now</span>
+             
+
+            <mat-divider vertical></mat-divider>
+            <span class="icon-container" style="cursor: pointer;" [matMenuTriggerFor]="whoweareMenu" >
+                <mat-icon class="white-icon" >keyboard_arrow_down</mat-icon>Who We Are</span>
+            <mat-menu #whoweareMenu="matMenu">
+                <button mat-menu-item (click)="navTo('aboutus')"><mat-icon>info</mat-icon>About Us</button>
+                <button mat-menu-item (click)="navTo('board-of-trustees')"><mat-icon>groups2</mat-icon>Board of Trustees</button>
+                <button mat-menu-item (click)="navTo('mission-and-vision')"><mat-icon>description</mat-icon>Our Mission And
+                Vision</button>
+            </mat-menu>
+                
+                
+            <mat-divider vertical></mat-divider>
+            <span class="icon-container" style="cursor: pointer;" [matMenuTriggerFor]="whatwedoMenu" >
+                <mat-icon class="white-icon" >keyboard_arrow_down</mat-icon>What We Do</span>
+            <mat-menu #whatwedoMenu="matMenu">
+                <button mat-menu-item (click)="navTo('education')"><mat-icon>school</mat-icon>Education</button>
+                <button mat-menu-item (click)="navTo('health')"><mat-icon>health_and_safety</mat-icon>Health</button>
+                <button mat-menu-item (click)="navTo('livelihood')"><mat-icon>home</mat-icon>Livelihood</button>
+                <button mat-menu-item (click)="navTo('women-empowerment')"><mat-icon>woman</mat-icon>Women Empowerment</button>
+            </mat-menu>
+            
+            
+            <mat-divider vertical></mat-divider>
+            <span class="icon-container" style="cursor: pointer;" [matMenuTriggerFor]="partnerMenu" >
+                    <mat-icon class="white-icon" >keyboard_arrow_down</mat-icon>Partnership</span>
+            <mat-menu #partnerMenu="matMenu">
+                <button mat-menu-item (click)="navTo('institutional')"><mat-icon>school</mat-icon>Institutional Partnership</button>
+                <button mat-menu-item (click)="navTo('corporate')"><mat-icon>apartment</mat-icon>Corporate Partnership</button>
+                <button mat-menu-item (click)="navTo('engagement')"><mat-icon>assured_workload</mat-icon>Engagement with Government</button>
+            </mat-menu>
+
+            <mat-divider vertical></mat-divider>
+            <span style="cursor: pointer;" (click)="navTo('/auth/contactus')" >Contact us</span>
+                        
+            <mat-divider vertical></mat-divider>
+            <span class="icon-container" style="cursor: pointer;" (click)="navTo('/auth/login')"> 
+            <mat-icon aria-hidden="false" aria-label="Sign in icon">login</mat-icon> Sign in</span>
+
+
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </ng-template>
+</ng-container>
+
+
+<!-- <mat-drawer-container class="full-height" hasBackdrop="true">
+    <mat-drawer-content>
+        <mat-toolbar>
+            <span style="font-size: 22px;font-family: cursive; cursor: pointer;" class="left-align ml-2"
+                (click)="navTo('')">{{headerTitle}}
+            </span>
+            <span class="spacer"></span>
+            <span class="mx-2 cursor-pointer" (click)="navTo('login')">Login</span>
+        </mat-toolbar>
+        <div class="container mw-100 bg-white p-0">
+            <router-outlet></router-outlet>
+        </div>
+
+    </mat-drawer-content>
+</mat-drawer-container> -->

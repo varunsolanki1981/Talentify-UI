@@ -1,0 +1,17 @@
+<mat-toolbar style="background-color: #75c799; font-size: 16px; font-style: italic; height: 48px;" >
+  <ng-container *ngFor="let crumb of breadcrumbs; let last = last">
+
+    <a *ngIf="!last"
+       mat-button
+       [routerLink]="crumb.url">
+       {{ crumb.label }}
+    </a>
+
+    <span *ngIf="last" class="active" style="color: whitesmoke;">
+      {{ crumb.label }}
+    </span>
+
+    <mat-icon *ngIf="!last">chevron_right</mat-icon>
+
+  </ng-container>
+</mat-toolbar>

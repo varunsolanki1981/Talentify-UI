@@ -1,0 +1,59 @@
+<!-- <mat-card>
+  <h2>Partner Requests</h2>
+
+  <ag-grid-angular
+    style="width:100%; height:500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [pagination]="true"
+    (gridReady)="onGridReady($event)">
+  </ag-grid-angular>
+</mat-card> -->
+<app-breadcrumb></app-breadcrumb>
+<mat-card>
+  <div class="header" style="padding: 20px;">
+    <h2>Partner Requests</h2>
+    <!-- <span class="badge" *ngIf="overdueCount > 0">
+      {{overdueCount}} pending > {{thresholdDays}} days
+    </span> -->
+  </div>
+
+  <div class="sla-cards">
+
+  <mat-card class="sla-card">
+    <h3>Avg Approval Time</h3>
+    <h2>{{slaStats.avgHours}} hrs</h2>
+  </mat-card>
+
+  <mat-card class="sla-card">
+    <h3>Fastest Approval</h3>
+    <h2>{{slaStats.minHours}} hrs</h2>
+  </mat-card>
+
+  <mat-card class="sla-card">
+    <h3>Slowest Approval</h3>
+    <h2>{{slaStats.maxHours}} hrs</h2>
+  </mat-card>
+
+</div>
+
+  <!-- TABS -->
+  <mat-tab-group (selectedTabChange)="onTabChange($event.tab.textLabel)">
+
+    <mat-tab label="PENDING"></mat-tab>
+    <mat-tab label="APPROVED"></mat-tab>
+    <mat-tab label="REJECTED"></mat-tab>
+
+  </mat-tab-group>
+
+  <ag-grid-angular
+    style="width:100%; height:500px;"
+    class="ag-theme-alpine"
+     (gridReady)="onGridReady($event)" [pagination]="true" 
+    [rowData]="rowData"
+    
+    [columnDefs]="columnDefs">
+  </ag-grid-angular>
+ <!-- [rowClassRules]="rowClassRules" -->
+</mat-card>

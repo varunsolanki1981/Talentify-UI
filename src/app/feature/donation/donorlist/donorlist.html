@@ -1,0 +1,20 @@
+<app-breadcrumb></app-breadcrumb>
+<mat-card>
+  <h2>Admin Dashboard</h2>
+
+  <!-- Search + Export -->
+  <div style="display:flex; gap:10px; margin-bottom:10px;">
+    <input placeholder="Search..." (input)="onSearch($event)" />
+    <button mat-raised-button color="primary" (click)="exportCSV()">Export CSV</button>
+  </div>
+
+  <!-- AG Grid -->
+  <ag-grid-angular
+    style="width:100%; height:500px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [pagination]="true"
+    (gridReady)="onGridReady($event)">
+  </ag-grid-angular>
+</mat-card>

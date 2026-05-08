@@ -1,0 +1,27 @@
+<!-- <mat-card>
+  <div class="chart-controls">
+    <button mat-flat-button color="primary" (click)="changeView('year')" [disabled]="viewMode === 'year'">Yearly</button>
+    <button mat-flat-button color="primary" (click)="changeView('month')" [disabled]="viewMode === 'month'">Monthly</button>
+
+    <div *ngIf="viewMode === 'month'" class="year-filter">
+      <label for="yearSelect">Year:</label>
+      <select id="yearSelect" [(ngModel)]="selectedYear" (change)="onYearSelectionChange(selectedYear)">
+        <option value="">All years</option>
+        <option *ngFor="let year of availableYears" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+  </div>
+<div id="container" class="highcharts-light">
+  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+    style="width: 100%; height: 400px; display: block;">
+  </highcharts-chart>
+  </div>
+</mat-card> -->
+
+<mat-card>
+<div id="container" class="highcharts-light">
+  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+    style="width: 100%; height: 400px; display: block;">
+  </highcharts-chart>
+  </div>
+</mat-card>

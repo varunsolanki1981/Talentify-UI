@@ -1,0 +1,107 @@
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* .container {
+  padding: 40px;
+} */
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.header p {
+  color: gray;
+  max-width: 600px;
+  margin: 10px auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Cards */
+.card {
+  border-radius: 12px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Icon Circle */
+.icon-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.icon-bg mat-icon {
+  color: white;
+}
+
+/* Mission Theme */
+.mission-bg {
+  background: #3f51b5;
+}
+
+/* Vision Theme */
+.vision-bg {
+  background: #009688;
+}
+
+mat-card-content ul {
+  margin-top: 10px;
+  padding-left: 18px;
+}
+
+mat-card-content li {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.parent {
+    justify-content: center;
+    /* Centers horizontally */
+    align-items: center;
+    /* Centers vertically */
+
+    font-weight: bold;
+    color: red;
+    font-size: 10rem;
+}
+
+h2.heading-eg {
+    text-align: center;
+    font-family: oswald, sans-serif;
+    font-size: 36px;
+    text-transform: uppercase;
+    padding-bottom: 0;
+    padding-top: 30px;
+}
+
+.centered-text {
+
+    font-family: Raleway, Sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #000;
+    padding: 24px;
+    margin: auto;
+
+}
